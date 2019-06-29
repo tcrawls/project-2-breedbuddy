@@ -60,26 +60,45 @@ breedRouter.get('/new', (req, res) => {
   res.render('breeds/newBreedForm')
 })
 
+breedRouter.get('/:breedId/edit', (req, res) => {
+  breedApi.getBreed(req.params.breedId)
+    .then((breed) => {
+      res.render('breeds/updateBreedForm', {breed})
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
 breedRouter.get('/:breedId', (req, res) => {
   breedApi.getBreed(req.params.breedId)
-  .then((breed) => {
+    .then((breed) => {
     res.render('breeds/breed', {breed})
-  })
-  .catch((err) => {
-    res.send(err)
-  })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 breedRouter.delete('/:breedId', (req, res) => {
   breedApi.deleteBreed(req.params.breedId)
-  .then(() => {
-    res.redirect('/breeds')
-  })
-  .catch((err) => {
-    res.send(err)
-  })
+    .then(() => {
+      res.redirect('/breeds')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
+breedRouter.put('/:breedId', (req, res) => {
+  breedApi.updateBreed(req.params.breedId, req.body)
+    .then(() => {
+      res.redirect('/breeds')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
 
 
 
