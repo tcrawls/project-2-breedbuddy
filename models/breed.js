@@ -46,7 +46,8 @@ const BreedModelSchema = new mongoose.Schema({
  activityLevel: {
   type: String,
   required: true
- }
+ },
+ imgLink: String
 })
 
 /* Step 3

@@ -1,5 +1,8 @@
 <h2>All Breeds</h2>
 
 {{#each breeds}}
-    <p>{{name}}</p>
+    <div>
+        <p>{{name}}</p>
+        <p><a href="/breeds/{{_id}}">Go to breed page</a></p>
+    </div>
 {{/each}}

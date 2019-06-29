@@ -50,6 +50,16 @@ breedRouter.post('/', (req, res) => {
   })
 })
 
+breedRouter.get('/:breedId', (req, res) => {
+  breedApi.getBreed(req.params.breedId)
+  .then((breed) => {
+    res.render('breeds/breed', {breed})
+  })
+})
+
+
+
+
 /* Step 6
  *
  * Export the router from the file.
