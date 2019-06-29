@@ -57,6 +57,13 @@ breedRouter.get('/:breedId', (req, res) => {
   })
 })
 
+breedRouter.delete('/:breedId', (req, res) => {
+  breedApi.deleteBreed(req.params.breedId)
+  .then(() => {
+    res.redirect('/breeds')
+  })
+})
+
 
 
 
