@@ -1,8 +1,7 @@
 <h2>All Breeds</h2>
 
+<a href="/breeds/new">Create New Breed</a>
+
 {{#each breeds}}
-    <div>
-        <p>{{name}}</p>
-        <p><a href="/breeds/{{_id}}">Go to breed page</a></p>
-    </div>
+    <p><a href="/breeds/{{_id}}">{{name}}</a></p>
 {{/each}}

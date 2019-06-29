@@ -31,22 +31,9 @@ const BreedModelSchema = new mongoose.Schema({
    type: String,
    required: true
  },
- group: {
-  type: String,
-  required: true
- },
- size: {
-  type: String,
-  required: true
- },
- shedding: {
-  type: String,
-  required: true
- },
- activityLevel: {
-  type: String,
-  required: true
- },
+ size: String,
+ shedding: String,
+ activityLevel: String,
  imgLink: String
 })
 

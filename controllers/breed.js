@@ -38,16 +38,26 @@ const breedRouter = express.Router()
  */ 
 breedRouter.get('/', (req, res) => {
   breedApi.getAllBreeds()
-  .then((breeds) => {
-    res.render('breeds/breeds', {breeds})
-  })
+    .then((breeds) => {
+      res.render('breeds/breeds', {breeds})
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 breedRouter.post('/', (req, res) => {
   breedApi.addNewBreed(req.body)
-  .then(() => {
-    res.redirect('/breeds')
-  })
+    .then(() => {
+      res.redirect('/breeds')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+breedRouter.get('/new', (req, res) => {
+  res.render('breeds/newBreedForm')
 })
 
 breedRouter.get('/:breedId', (req, res) => {
@@ -55,12 +65,18 @@ breedRouter.get('/:breedId', (req, res) => {
   .then((breed) => {
     res.render('breeds/breed', {breed})
   })
+  .catch((err) => {
+    res.send(err)
+  })
 })
 
 breedRouter.delete('/:breedId', (req, res) => {
   breedApi.deleteBreed(req.params.breedId)
   .then(() => {
     res.redirect('/breeds')
+  })
+  .catch((err) => {
+    res.send(err)
   })
 })
 

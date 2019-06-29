@@ -2,12 +2,11 @@
 
 <h2>{{breed.name}}</h2>
 
-<p>Group: {{breed.group}}</p>
 <p>Size: {{breed.size}}</p>
 <p>Shedding: {{breed.shedding}}</p>
 <p>Activity Level: {{breed.activityLevel}}</p>
 <img src="{{breed.imgLink}}" alt="Image of {{breed.name}}" />
 
-<form method="post" action="/breeds/{{breed._id}}?_method=DELETE">
+<form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
     <input type="submit" value="Delete Breed">
 </form>
