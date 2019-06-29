@@ -37,7 +37,17 @@ const breedRouter = express.Router()
  * TODO: delete this handler; it's just a sample
  */ 
 breedRouter.get('/', (req, res) => {
-  res.send(templateApi.getHelloWorldString())
+  breedApi.getAllBreeds()
+  .then((breeds) => {
+    res.render('breeds/breeds', {breeds})
+  })
+})
+
+breedRouter.post('/', (req, res) => {
+  breedApi.addNewBreed(req.body)
+  .then(() => {
+    res.redirect('/breeds')
+  })
 })
 
 /* Step 6
