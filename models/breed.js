@@ -31,6 +31,7 @@ const BreedModelSchema = new mongoose.Schema({
    type: String,
    required: true
  },
+ akcGroup: String,
  size: String,
  shedding: String,
  activityLevel: String,
