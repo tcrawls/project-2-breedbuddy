@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const breedApi = require('../models/breed.js')
+const commentApi = require('../models/comment.js')
 
 /* Step 3 
  * 
@@ -73,11 +74,17 @@ breedRouter.get('/:breedId/edit', (req, res) => {
 breedRouter.get('/:breedId', (req, res) => {
   breedApi.getBreed(req.params.breedId)
     .then((breed) => {
-    res.render('breeds/breed', {breed})
+      commentApi.getCommentByBreedId(breed._id)
+        .then((comment) => {
+          res.render('breeds/breed', {breed, comment})
+        })
+        .catch((err) => {
+          res.send(err)
     })
     .catch((err) => {
       res.send(err)
-    })
+})
+})
 })
 
 breedRouter.delete('/:breedId', (req, res) => {

@@ -18,6 +18,7 @@ const methodOverride = require('method-override')
  *
  */
 const { breedRouter } = require('./controllers/breed.js')
+const { commentRouter } = require('./controllers/comment.js')
 
 
 /* Step 3
@@ -62,6 +63,7 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/breeds', breedRouter)
+app.use('/breeds/:breedId/comment', commentRouter)
 
 /* Step 5
  *

@@ -15,3 +15,12 @@
 <form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
     <input type="submit" value="Delete Breed">
 </form>
+
+
+<h3>Comments</h3>
+
+<ul>
+    {{#each comment}}
+        <li>{{description}}</li>
+    {{/each}}
+</ul>
