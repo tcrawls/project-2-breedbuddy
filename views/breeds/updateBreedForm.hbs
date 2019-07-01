@@ -1,0 +1,21 @@
+<form method="POST" action="/breeds/{{breed._id}}?_method=PUT">
+
+<label for="name">Breed Name:</label>
+<input type="text" name="name" id="name" value="{{breed.name}}" />
+
+<label for="size">Size:</label>
+<input type="text" name="size" id="size" value="{{breed.size}}" />
+
+<label for="shedding">Shedding:</label>
+<input type="text" name="shedding" id="shedding" value="{{breed.shedding}}" />
+
+<label for="activityLevel">Activity Level:</label>
+<input type="text" name="activityLevel" id="activityLevel" value="{{breed.activityLevel}}" />
+
+<label for="imgLink">Image Link:</label>
+<input type="text" name="imgLink" id="imgLink" value="{{breed.imgLink}}"/>
+
+<input type="submit" value="Update Breed" />
+
+
+</form>

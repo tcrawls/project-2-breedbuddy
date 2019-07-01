@@ -7,7 +7,9 @@
 <p>Activity Level: {{breed.activityLevel}}</p>
 <img src="{{breed.imgLink}}" alt="Image of {{breed.name}}" />
 
-<a href="/breeds/{{breed._id}}/edit">Edit Breed</a>
+<form method="GET" action="/breeds/{{breed._id}}/edit">
+    <input type="submit" value="Edit Breed">
+</form>
 
 <form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
     <input type="submit" value="Delete Breed">
