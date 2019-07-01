@@ -38,11 +38,10 @@ const commentRouter = express.Router({mergeParams: true})
  */ 
 
 commentRouter.post('/', (req, res) => {
-  console.log(req.params)
   req.body.breedId = req.params.breedId
   commentApi.addComment(req.body)
     .then(() => {
-      res.send('Comment created')
+      res.redirect('/breeds')
     })
 })
 

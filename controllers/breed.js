@@ -80,11 +80,18 @@ breedRouter.get('/:breedId', (req, res) => {
         })
         .catch((err) => {
           res.send(err)
+        })
+      .catch((err) => {
+        res.send(err)
+      })
     })
-    .catch((err) => {
-      res.send(err)
 })
-})
+
+breedRouter.get('/:breedId/newComment', (req, res) => {
+  breedApi.getBreed(req.params.breedId)
+    .then((breed) => {
+      res.render('comments/newCommentForm', {breed})
+    })
 })
 
 breedRouter.delete('/:breedId', (req, res) => {
