@@ -28,6 +28,9 @@
     <p>Submitted by <b>{{submitter}}:</b></p>
     <p>Comment: {{description}}</p>
     <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
-        <input type="submit" value="Edit this comment">
+        <input type="submit" value="Edit comment">
+    </form>
+    <form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
+        <input type="submit" value="Delete comment">
     </form>
 {{/each}}
