@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const commentApi = require('../models/comment.js')
+const breedApi = require('../models/breed.js')
 
 /* Step 3 
  * 
@@ -41,7 +42,7 @@ commentRouter.post('/', (req, res) => {
   req.body.breedId = req.params.breedId
   commentApi.addComment(req.body)
     .then(() => {
-      res.redirect('/breeds')
+      res.redirect(`/breeds/${req.params.breedId}`)
     })
 })
 
