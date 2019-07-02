@@ -1,8 +1,11 @@
 <h2>Adoption Listings</h2>
 
-<form method="GET" action="/breeds/{{breed._id}}/listings/new">
+<a href="/breeds/{{breed._id}}/listings/new">Create New Listing</a>
+
+
+{{!-- <form method="GET" action="/breeds/{{breed._id}}/listing/new">
     <input type="submit" value="Create New Listing">
-</form>
+</form> --}}
 
 {{#each listing}}
     <p>{{createdAt}}</p>

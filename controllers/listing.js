@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const listingApi = require('../models/listing.js')
+const breedApi = require('../models/breed.js')
 
 /* Step 3 
  * 
@@ -40,21 +41,35 @@ const listingRouter = express.Router({mergeParams: true})
 listingRouter.get('/', (req, res) => {
   listingApi.getListingsByBreedId(req.params.breedId)
     .then((listings) => {
-      res.render('listings/listings', {listings})
+      breedApi.getBreed(req.params.breedId)
+        .then((breed) => {
+          res.render('listings/listings', {listings, breed})
+        })
     })
-})
-
-listingRouter.get('/new', (req, res) => {
-  res.render('listings/newListingForm')
 })
 
 listingRouter.post('/', (req, res) => {
   req.body.breedId = req.params.breedId
   listingApi.addListing(req.body)
     .then(() => {
-      res.redirect(`/breeds/${req.params.breedId}/listings`)
+      listingApi.getListingsByBreedId(req.params.breedId)
+      .then((listings) => {
+        res.render('listings/listings', {listings})
+      })
     })
-})
+  })
+
+listingRouter.get('/new', (req, res) => {
+  breedApi.getBreed(req.params.breedId)
+    .then((breed) => {
+      res.render('listings/newListingForm', {breed})
+    })
+  })
+  
+//       listingApi.getListingsByBreedId
+//       res.render('listings/newListingForm', {breed})
+//     })
+// })
 
 
 /* Step 6
