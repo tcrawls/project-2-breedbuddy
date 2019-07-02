@@ -25,12 +25,12 @@
 </form>
 
 {{#each comment}}
-<p>Submitted by <b>{{submitter}}:</b></p>
-<p>"{{description}}"</p>
-<form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
-    <input type="submit" value="Update review">
-</form>
-<form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
-    <input type="submit" value="Delete review">
-</form>
+    <p>Submitted by <b>{{submitter}}:</b></p>
+    <p>"{{description}}"</p>
+    <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
+        <input type="submit" value="Edit Review">
+    </form>
+    <form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
+        <input type="submit" value="Delete Review">
+    </form>
 {{/each}}
