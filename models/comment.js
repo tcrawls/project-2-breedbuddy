@@ -28,7 +28,7 @@ const mongoose = require('./connection.js')
  */
 const CommentModelSchema = new mongoose.Schema({
  submitter: String,
- date: Date,
+ createdAt: Date,
  breed: String,
  description: String,
  breedId: mongoose.Types.ObjectId
@@ -56,6 +56,14 @@ function addComment(commentObject) {
   return CommentCollection.create(commentObject)
 }
 
+function getCommentByCommentId(commentId) {
+  return CommentCollection.findById(commentId)
+}
+
+function updateComment(commentId, updatedComment) {
+  return CommentCollection.findByIdAndUpdate(commentId, updatedComment)
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -63,5 +71,7 @@ function addComment(commentObject) {
  */
 module.exports = {
   getCommentByBreedId,
-  addComment
+  addComment,
+  getCommentByCommentId,
+  updateComment
 }
