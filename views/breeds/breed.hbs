@@ -23,8 +23,9 @@
     <input type="submit" value="Add a comment">
 </form>
 
-<ul>
-    {{#each comment}}
-        <li>{{description}}</li>
-    {{/each}}
-</ul>
+
+{{#each comment}}
+    <p>Submitted by <b>{{submitter}} </b><b>on {{date}}</b>:</p>
+    <p>Comment: {{description}}</p>
+    <p><a href="/breeds/{{breedId}}/comment/{{_id}}/edit">Edit this comment</a></p>
+{{/each}}
