@@ -45,6 +45,23 @@ commentRouter.post('/', (req, res) => {
     })
 })
 
+commentRouter.get('/:commentId/edit', (req, res) => {
+  commentApi.getCommentByCommentId(req.params.commentId)
+    .then((comment) => {
+      res.render('comments/editCommentForm', {comment})
+    })
+})
+
+commentRouter.put('/:commentId', (req, res) => {
+  commentApi.updateComment(req.params.commentId, req.body)
+    .then(() => {
+      res.redirect('/breeds')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
 
 
 /* Step 6
