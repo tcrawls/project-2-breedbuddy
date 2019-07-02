@@ -1,0 +1,20 @@
+<form method="POST" action="/breeds/{{comment.breedId}}/comment/{{comment._id}}?_method=PUT">
+
+
+<label for="submitter">Submitted By:</label>
+<input type="text" name="submitter" id="submitter" value="{{comment.submitter}}" />
+
+<label for="createdAt">Date Submitted:</label>
+<input type="date" name="createdAt" id="createdAt" value="{{comment.createdAt}}" />
+
+<label for="breed">Breed:</label>
+<input type="text" name="breed" id="breed" value="{{comment.breed}}" />
+
+<label for="description">Comment:</label>
+<input type="text" name="description" id="description" value="{{comment.description}}" />
+
+
+<input type="submit" value="Update Breed" />
+
+
+</form>
