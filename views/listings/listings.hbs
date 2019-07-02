@@ -1,0 +1,10 @@
+<h2>Adoption Listings</h2>
+
+<form method="GET" action="/breeds/{{breed._id}}/listings/new">
+    <input type="submit" value="Create New Listing">
+</form>
+
+{{#each listing}}
+    <p>{{createdAt}}</p>
+    <p>{{dogName}}</p>
+{{/each}}
