@@ -62,6 +62,13 @@ commentRouter.put('/:commentId', (req, res) => {
     })
 })
 
+commentRouter.delete('/:commentId', (req, res) => {
+  commentApi.deleteComment(req.params.commentId)
+    .then(() => {
+      res.redirect('/breeds')
+    })
+})
+
 
 
 /* Step 6

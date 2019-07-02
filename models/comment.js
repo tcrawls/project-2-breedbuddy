@@ -64,6 +64,10 @@ function updateComment(commentId, updatedComment) {
   return CommentCollection.findByIdAndUpdate(commentId, updatedComment)
 }
 
+function deleteComment(commentId) {
+  return CommentCollection.findByIdAndDelete(commentId)
+}
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
@@ -73,5 +77,6 @@ module.exports = {
   getCommentByBreedId,
   addComment,
   getCommentByCommentId,
-  updateComment
+  updateComment,
+  deleteComment
 }
