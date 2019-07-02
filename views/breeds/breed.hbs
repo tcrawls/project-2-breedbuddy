@@ -1,5 +1,15 @@
 <a href="/breeds">Back to breed list</a>
 
+<div>
+    <form method="GET" action="/breeds/{{breed._id}}/edit">
+        <input type="submit" value="Edit Breed">
+    </form>
+
+    <form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
+        <input type="submit" value="Delete Breed">
+    </form>
+</div>
+
 <h2>{{breed.name}}</h2>
 
 <p>AKC Group: {{breed.akcGroup}}</p>
@@ -8,29 +18,19 @@
 <p>Activity Level: {{breed.activityLevel}}</p>
 <img src="{{breed.imgLink}}" alt="Image of {{breed.name}}" />
 
-<form method="GET" action="/breeds/{{breed._id}}/edit">
-    <input type="submit" value="Edit Breed">
-</form>
-
-<form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
-    <input type="submit" value="Delete Breed">
-</form>
-
-
-<h3>Comments</h3>
+<h3>Breed Reviews</h3>
 
 <form method="GET" action="/breeds/{{breed._id}}/newComment">
-    <input type="submit" value="Add a comment">
+    <input type="submit" value="Submit a Review">
 </form>
 
-
 {{#each comment}}
-    <p>Submitted by <b>{{submitter}}:</b></p>
-    <p>Comment: {{description}}</p>
-    <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
-        <input type="submit" value="Edit comment">
-    </form>
-    <form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
-        <input type="submit" value="Delete comment">
-    </form>
+<p>Submitted by <b>{{submitter}}:</b></p>
+<p>"{{description}}"</p>
+<form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
+    <input type="submit" value="Update review">
+</form>
+<form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
+    <input type="submit" value="Delete review">
+</form>
 {{/each}}

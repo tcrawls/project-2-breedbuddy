@@ -1,6 +1,8 @@
 <h2>All Breeds</h2>
 
-<a href="/breeds/new">Create New Breed</a>
+<form method="GET" action="/breeds/new">
+    <input type="submit" value="Create New Breed">
+</form>
 
 {{#each breeds}}
     <p><a href="/breeds/{{_id}}">{{name}}</a></p>
