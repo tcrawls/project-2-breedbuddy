@@ -25,7 +25,9 @@
 
 
 {{#each comment}}
-    <p>Submitted by <b>{{submitter}} </b><b>on {{date}}</b>:</p>
+    <p>Submitted by <b>{{submitter}}:</b></p>
     <p>Comment: {{description}}</p>
-    <p><a href="/breeds/{{breedId}}/comment/{{_id}}/edit">Edit this comment</a></p>
+    <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
+        <input type="submit" value="Edit this comment">
+    </form>
 {{/each}}
