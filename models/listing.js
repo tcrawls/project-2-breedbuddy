@@ -28,12 +28,13 @@ const mongoose = require('./connection.js')
  */
 const ListingModelSchema = new mongoose.Schema({
   createdAt: Date,
-  name: String,
+  dogName: String,
   state: String,
   age: String,
   gender: String,
   weight: Number,
   description: String,
+  contactEmail: String,
   breedId: mongoose.Types.ObjectId
 })
 
@@ -51,7 +52,7 @@ const ListingCollection = mongoose.model('Listing', ListingModelSchema)
  *
  */
 
-function getListingByBreedId(breedId) {
+function getListingsByBreedId(breedId) {
   return ListingCollection.find({breedId: breedId})
 }
 
@@ -77,9 +78,9 @@ function deleteListing(listingId) {
  * object
  */
 module.exports = {
-  getCommentByBreedId,
-  addComment,
-  getCommentByCommentId,
-  updateComment,
-  deleteComment
+  getListingsByBreedId,
+  addListing,
+  getListingByListingId,
+  updateListing,
+  deleteListing
 }

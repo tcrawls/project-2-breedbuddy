@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const commentApi = require('../models/comment.js')
+const listingApi = require('../models/listing.js')
 
 /* Step 3 
  * 
@@ -25,7 +25,7 @@ const commentApi = require('../models/comment.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const commentRouter = express.Router({mergeParams: true})
+const listingRouter = express.Router({mergeParams: true})
 
 /* Step 4
  * 
@@ -37,38 +37,24 @@ const commentRouter = express.Router({mergeParams: true})
  * TODO: delete this handler; it's just a sample
  */ 
 
-commentRouter.post('/', (req, res) => {
+listingRouter.get('/', (req, res) => {
+  listingApi.getListingsByBreedId(req.params.breedId)
+    .then((listings) => {
+      res.render('listings/listings', {listings})
+    })
+})
+
+listingRouter.get('/new', (req, res) => {
+  res.render('listings/newListingForm')
+})
+
+listingRouter.post('/', (req, res) => {
   req.body.breedId = req.params.breedId
-  commentApi.addComment(req.body)
+  listingApi.addListing(req.body)
     .then(() => {
-      res.redirect('/breeds')
+      res.redirect(`/breeds/${req.params.breedId}/listings`)
     })
 })
-
-commentRouter.get('/:commentId/edit', (req, res) => {
-  commentApi.getCommentByCommentId(req.params.commentId)
-    .then((comment) => {
-      res.render('comments/editCommentForm', {comment})
-    })
-})
-
-commentRouter.put('/:commentId', (req, res) => {
-  commentApi.updateComment(req.params.commentId, req.body)
-    .then(() => {
-      res.redirect('/breeds')
-    })
-    .catch((err) => {
-      res.send(err)
-    })
-})
-
-commentRouter.delete('/:commentId', (req, res) => {
-  commentApi.deleteComment(req.params.commentId)
-    .then(() => {
-      res.redirect('/breeds')
-    })
-})
-
 
 
 /* Step 6
@@ -77,5 +63,5 @@ commentRouter.delete('/:commentId', (req, res) => {
  *
  */
 module.exports = {
-  commentRouter
+  listingRouter
 }

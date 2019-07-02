@@ -19,6 +19,7 @@ const methodOverride = require('method-override')
  */
 const { breedRouter } = require('./controllers/breed.js')
 const { commentRouter } = require('./controllers/comment.js')
+const { listingRouter } = require('./controllers/listing.js')
 
 
 /* Step 3
@@ -64,6 +65,7 @@ app.set('view engine', 'hbs')
  */
 app.use('/breeds', breedRouter)
 app.use('/breeds/:breedId/comment', commentRouter)
+app.use('/breeds/:breedId/listings', listingRouter)
 
 /* Step 5
  *
