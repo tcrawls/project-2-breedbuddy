@@ -26,7 +26,7 @@ const breedApi = require('../models/breed.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const listingRouter = express.Router({mergeParams: true})
+const listingRouter = express.Router({ mergeParams: true })
 
 /* Step 4
  * 
@@ -36,14 +36,14 @@ const listingRouter = express.Router({mergeParams: true})
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
- */ 
+ */
 
 listingRouter.get('/', (req, res) => {
   listingApi.getListingsByBreedId(req.params.breedId)
     .then((listings) => {
       breedApi.getBreed(req.params.breedId)
-      .then((breed) => {
-          res.render('listings/listings', {listings, breed})
+        .then((breed) => {
+          res.render('listings/listings', { listings, breed })
         })
     })
 })
@@ -55,27 +55,45 @@ listingRouter.post('/', (req, res) => {
       res.redirect(`/breeds/${req.params.breedId}/listings`)
     })
 })
-  //   .then(() => {
-  //     listingApi.getListingsByBreedId(req.params.breedId)
-  //     .then((listings) => {
-  //       res.render('listings/listings', {listings})
-  //     })
-  //   })
-  // })
+//   .then(() => {
+//     listingApi.getListingsByBreedId(req.params.breedId)
+//     .then((listings) => {
+//       res.render('listings/listings', {listings})
+//     })
+//   })
+// })
 
 listingRouter.get('/new', (req, res) => {
   breedApi.getBreed(req.params.breedId)
     .then((breed) => {
-      res.render('listings/newListingForm', {breed})
+      res.render('listings/newListingForm', { breed })
     })
-  })
-  
+})
+
 listingRouter.delete('/:listingId', (req, res) => {
-    listingApi.deleteListing(req.params.listingId)
-      .then(() => {
-        res.redirect(`/breeds/${req.params.breedId}/listings`)
-      })
-  })
+  listingApi.deleteListing(req.params.listingId)
+    .then(() => {
+      res.redirect(`/breeds/${req.params.breedId}/listings`)
+    })
+})
+
+listingRouter.get('/:listingId/edit', (req, res) => {
+  listingApi.getListingByListingId(req.params.listingId)
+    .then((listing) => {
+      res.render('listings/editListingForm', { listing })
+    })
+})
+
+listingRouter.put('/:listingId', (req, res) => {
+  listingApi.updateListing(req.params.listingId, req.body)
+    .then(() => {
+      res.redirect(`/breeds/${req.params.breedId}/listings`)
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
 
 
 /* Step 6

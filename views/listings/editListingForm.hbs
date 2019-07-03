@@ -1,0 +1,29 @@
+<form method="POST" action="/breeds/{{listing.breedId}}/listings/{{listing._id}}?_method=PUT">
+
+    <label for="createdAt">Date Created:</label>
+    <input type="date" name="createdAt" id="createdAt" value="{{listing.createdAt}}" />
+
+    <label for="contactEmail">Contact Email:</label>
+    <input type="text" name="contactEmail" id="contactEmail" value="{{listing.contactEmail}}" />
+
+    <label for="state">Contact State:</label>
+    <input type="text" name="state" id="state" value="{{listing.state}}" />
+
+    <label for="dogName">Name of Animal:</label>
+    <input type="text" name="dogName" id="dogName" value="{{listing.dogName}}" />
+
+    <label for="age">Age:</label>
+    <input type="text" name="age" id="age" value="{{listing.age}}" />
+
+    <label for="gender">Gender:</label>
+    <input type="text" name="gender" id="gender" value="{{listing.gender}}" />
+
+    <label for="weight">Weight (lbs):</label>
+    <input type="Number" name="weight" id="weight" value="{{listing.weight}}" />
+
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" value="{{listing.description}}" />
+
+    <input type="submit" value="Update Listing" />
+
+</form>
