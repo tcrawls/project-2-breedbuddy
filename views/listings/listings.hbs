@@ -8,6 +8,9 @@
 </form> --}}
 
 {{#each listings}}
+    <form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
+        <input type="submit" value="Delete Listing">
+    </form>
     <p>{{createdAt}}</p>
     <p>{{dogName}}</p>
     <p>{{description}}</p>

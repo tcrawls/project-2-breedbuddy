@@ -70,10 +70,12 @@ listingRouter.get('/new', (req, res) => {
     })
   })
   
-//       listingApi.getListingsByBreedId
-//       res.render('listings/newListingForm', {breed})
-//     })
-// })
+listingRouter.delete('/:listingId', (req, res) => {
+    listingApi.deleteListing(req.params.listingId)
+      .then(() => {
+        res.redirect(`/breeds/${req.params.breedId}/listings`)
+      })
+  })
 
 
 /* Step 6
