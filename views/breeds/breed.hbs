@@ -27,7 +27,7 @@
 </form>
 
 {{#each comment}}
-    <p>Submitted by <b>{{submitter}}:</b></p>
+    <p>Submitted by <b>{{submitter}}</b> on {{createdAt}}:</p>
     <p>"{{description}}"</p>
     <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
         <input type="submit" value="Edit Review">

@@ -1,15 +1,25 @@
+<a href="/breeds/{{breed._id}}">Back to {{breed.name}} page</a>
+<a href="/breeds">Back to breed list</a>
+
 <h2>Adoption Listings</h2>
 
-<a href="/breeds/{{breed._id}}/listings/new">Create New Listing</a>
+<form method="GET" action="/breeds/{{breed._id}}/listings/new">
+    <input type="submit" value="Create New Listing">
+</form>
 
 {{#each listings}}
-    <form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
-        <input type="submit" value="Delete Listing">
-    </form>
-    <form method="GET" action="/breeds/{{breedId}}/listings/{{_id}}/edit">
-        <input type="submit" value="Edit Listing">
-    </form>
-    <p>{{createdAt}}</p>
-    <p>{{dogName}}</p>
-    <p>{{description}}</p>
+<p>{{createdAt}}</p>
+<p>{{dogName}}</p>
+<p>{{state}}</p>
+<p>{{age}}</p>
+<p>{{gender}}</p>
+<p>{{weight}} lbs.</p>
+<p>{{description}}</p>
+<p>{{contactEmail}}</p>
+<form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
+    <input type="submit" value="Delete Listing">
+</form>
+<form method="GET" action="/breeds/{{breedId}}/listings/{{_id}}/edit">
+    <input type="submit" value="Edit Listing">
+</form>
 {{/each}}
