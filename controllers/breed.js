@@ -114,7 +114,7 @@ breedRouter.delete('/:breedId', (req, res) => {
 breedRouter.put('/:breedId', (req, res) => {
   breedApi.updateBreed(req.params.breedId, req.body)
     .then(() => {
-      res.redirect('/breeds')
+      res.redirect(`/breeds/${req.params.breedId}`)
     })
     .catch((err) => {
       res.send(err)

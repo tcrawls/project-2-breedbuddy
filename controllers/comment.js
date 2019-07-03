@@ -56,7 +56,7 @@ commentRouter.get('/:commentId/edit', (req, res) => {
 commentRouter.put('/:commentId', (req, res) => {
   commentApi.updateComment(req.params.commentId, req.body)
     .then(() => {
-      res.redirect('/breeds')
+      res.redirect(`/breeds/${req.params.breedId}`)
     })
     .catch((err) => {
       res.send(err)
@@ -66,7 +66,7 @@ commentRouter.put('/:commentId', (req, res) => {
 commentRouter.delete('/:commentId', (req, res) => {
   commentApi.deleteComment(req.params.commentId)
     .then(() => {
-      res.redirect('/breeds')
+      res.redirect(`/breeds/${req.params.breedId}`)
     })
 })
 

@@ -29,7 +29,6 @@ const mongoose = require('./connection.js')
 const CommentModelSchema = new mongoose.Schema({
  submitter: String,
  createdAt: Date,
- breed: String,
  description: String,
  breedId: mongoose.Types.ObjectId
 })
