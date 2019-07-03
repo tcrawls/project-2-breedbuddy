@@ -6,9 +6,11 @@
     </form>
 
     <form method="POST" action="/breeds/{{breed._id}}?_method=DELETE">
-        <input type="submit" value="Delete Breed">
+        <input type="submit" value="Delete Breed" class="btn btn-primary">
     </form>
 </div>
+
+<img src="{{breed.imgLink}}" class="rounded float-right" alt="Image of {{breed.name}}">
 
 <h2>{{breed.name}}</h2>
 
@@ -18,12 +20,15 @@
 <p>Size: {{breed.size}}</p>
 <p>Shedding: {{breed.shedding}}</p>
 <p>Activity Level: {{breed.activityLevel}}</p>
-<img src="{{breed.imgLink}}" alt="Image of {{breed.name}}" />
+
+
+
+{{!-- <img src="{{breed.imgLink}}" alt="Image of {{breed.name}}" /> --}}
 
 <h3>Breed Reviews</h3>
 
 <form method="GET" action="/breeds/{{breed._id}}/newComment">
-    <input type="submit" value="Submit a Review">
+    <input type="submit" value="Post a Review" class="btn btn-primary">
 </form>
 
 {{#each comment}}
