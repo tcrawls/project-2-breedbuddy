@@ -5,3 +5,9 @@
 h1 {
     font-size: 350%;
 }
+
+.newBreed .editBreed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
