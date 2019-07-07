@@ -1,9 +1,8 @@
-
-
 <section class="jumbotron">
     <div class="container">
         <p class="display-3 homepage-title">Breed Buddy</p>
-        <p class="lead text-muted display-6 homepage-description">Learn about dog breeds. Share your breed knowledge. Find a breeder near you.</p>
+        <p class="lead text-muted display-6 homepage-description">Learn about dog breeds. Share your breed knowledge.
+            Find a breeder near you.</p>
         <p><a href="/breeds/new" class="btn btn-primary btn-lg homepage-button">Create New Breed</a></p>
     </div>
 </section>
@@ -14,16 +13,17 @@
             {{#each breeds}}
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{{imgLink}}" alt="Image of {{name}}" class="bd-placeholder-img card-img-top" width="100%"
-                        height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" role="img">
+                    <img src="{{imgLink}}" alt="Image of {{name}}" class="card-img-top" width="100%" height="225"
+                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                        role="img">
                     <title>{{name}}</title>
                     <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                         dy=".3em">{{name}}</text>
                     </svg>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <p><a href="/breeds/{{_id}}" class="btn btn-sm btn-outline-secondary">View Breed</a></p>
+                            <p><a href="/breeds/{{_id}}" class="btn btn-sm btn-outline-secondary">View Breed Page</a>
+                            </p>
                         </div>
                     </div>
 

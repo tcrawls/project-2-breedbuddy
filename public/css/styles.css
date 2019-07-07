@@ -66,6 +66,32 @@
     width: auto;
 }
 
+.post-comment {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#edit-comment {
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+#delete-comment {
+    width: 150px;
+}
+
+.form-fields {
+    width: 500px;
+}
+
+.form-body {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+/* form {
+    margin-top: 35px;
+} */
 /* #breed-header {
     display: grid;
     grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr 50px;

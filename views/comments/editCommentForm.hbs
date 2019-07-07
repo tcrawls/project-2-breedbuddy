@@ -1,20 +1,21 @@
-<form method="POST" action="/breeds/{{comment.breedId}}/comment/{{comment._id}}?_method=PUT">
-
-
-<label for="submitter">Submitted By:</label>
-<input type="text" name="submitter" id="submitter" value="{{comment.submitter}}" />
-
-<label for="createdAt">Date Submitted:</label>
-<input type="date" name="createdAt" id="createdAt" value="{{comment.createdAt}}" />
-
-<label for="breed">Breed:</label>
-<input type="text" name="breed" id="breed" value="{{comment.breed}}" />
-
-<label for="description">Comment:</label>
-<input type="text" name="description" id="description" value="{{comment.description}}" />
-
-
-<input type="submit" value="Update Review" />
-
-
-</form>
+<body class="form-body">
+    <h3>Edit review:</h3>
+    <form method="POST" action="/breeds/{{comment.breedId}}/comment/{{comment._id}}?_method=PUT">
+        <div class="form-fields">
+            <div class="form-group">
+                <label for="submitter">Submitted By:</label>
+                <input type="text" name="submitter" id="submitter" value="{{comment.submitter}}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="createdAt">Date Submitted:</label>
+                <input type="date" name="createdAt" id="createdAt" value="{{comment.createdAt}}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="description">Comment:</label>
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control"
+                    value="{{comment.description}}"></textarea>
+            </div>
+            <input type="submit" value="Update Review" />
+        </div>
+    </form>
+<body>

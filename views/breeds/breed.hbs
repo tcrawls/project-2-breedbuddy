@@ -22,7 +22,7 @@
                         <input type="submit" value="Delete Breed" class="btn btn-outline-secondary btn-lg delete-breed">
                     </form>
                 </div>
-                
+
                 <form method="GET" action="/breeds/{{breed._id}}/listings">
                     <input type="submit" value="Adopt a {{breed.name}}" class="btn btn-primary btn-lg adopt-breed">
                 </form>
@@ -34,16 +34,16 @@
 </section>
 
 <section class="container breed-reviews">
-    <h2>Comments & Reviews</h2>
+    <div class="rounded display-4">Breed Reviews</div>
     <form method="GET" action="/breeds/{{breed._id}}/newComment">
-        <input type="submit" value="Post a Comment" class="btn btn-primary">
+        <input class="btn btn-info post-comment" type="submit" value="Post a Review">
     </form>
     <table class="table">
         <thread>
             <tr>
                 <th>Name</th>
                 <th>Date</th>
-                <th>Comment</th>
+                <th>Review</th>
             </tr>
         </thread>
         <tbody>
@@ -54,11 +54,12 @@
                 <td>{{description}}</td>
                 <td>
                     <form method="GET" action="/breeds/{{breedId}}/comment/{{_id}}/edit">
-                        <input type="submit" value="Edit Comment">
+                        <input type="submit" value="Edit Review" class="btn btn-outline-info" id="edit-comment">
                     </form>
 
                     <form method="POST" action="/breeds/{{breedId}}/comment/{{_id}}?_method=DELETE">
-                        <input type="submit" value="Delete Comment">
+                        <input type="submit" value="Delete Review" class="btn btn-outline-secondary"
+                            id="delete-comment">
                     </form>
                 </td>
             </tr>
