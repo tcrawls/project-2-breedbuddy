@@ -1,10 +1,18 @@
-/* body {
-    background-color: rgb(224, 243, 237);
+/* h1 {
+    font-size: 350%;
 } */
 
-h1 {
-    font-size: 350%;
+/* .homepage-title {
+    margin-bottom: 20px;
 }
+
+.homepage-description {
+    margin-bottom: 20px;
+}
+
+.homepage-button {
+    margin-top: 20px;
+} */
 
 .newBreed .editBreed {
     display: flex;
@@ -15,5 +23,52 @@ h1 {
 #breed-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
 }
+
+#breed-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#breed-col-one {
+    padding-right: 20px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+#breed-col-two {
+    padding-top: 105px;
+}
+
+#breedName {
+    padding-bottom: 30px;
+}
+
+.edit-breed {
+    margin-right: 5px;
+    width: 150px
+}
+
+.delete-breed {
+    margin-left: 5px;
+    width: 150px
+}
+
+.adopt-breed {
+    width: 310px;
+    margin-top: 10px;
+}
+
+#breedImage {
+    height: 300px;
+    width: auto;
+}
+
+/* #breed-header {
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr 50px;
+    grid-template-columns: 100px 2fr 1fr 100px;
+} */
+
