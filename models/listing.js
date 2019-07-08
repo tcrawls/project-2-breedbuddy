@@ -27,13 +27,12 @@ const mongoose = require('./connection.js')
  *
  */
 const ListingModelSchema = new mongoose.Schema({
-  createdAt: Date,
   dogName: String,
+  breedName: String,
+  city: String,
   state: String,
   age: String,
   gender: String,
-  weight: Number,
-  description: String,
   contactEmail: String,
   breedId: mongoose.Types.ObjectId
 })
