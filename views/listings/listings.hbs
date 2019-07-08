@@ -1,25 +1,59 @@
-<a href="/breeds/{{breed._id}}">Back to {{breed.name}} page</a>
-<a href="/breeds">Back to breed list</a>
+<div><a href="/breeds/{{breed._id}}">
+        << Return to {{breed.name}} Page</a> </div> <div><a href="/breeds">
+                << Return to Breed Directory</a> </div> <h2>{{breed.name}} Adoption Listings</h2>
 
-<h2>Adoption Listings</h2>
+                    <form method="GET" action="/breeds/{{breed._id}}/listings/new">
+                        <input type="submit" value="Create New Listing">
+                    </form>
 
-<form method="GET" action="/breeds/{{breed._id}}/listings/new">
-    <input type="submit" value="Create New Listing">
-</form>
+                    {{!-- {{#each listings}}
+                    <p>{{createdAt}}</p>
+                    <p>{{dogName}}</p>
+                    <p>{{state}}</p>
+                    <p>{{age}}</p>
+                    <p>{{gender}}</p>
+                    <p>{{weight}} lbs.</p>
+                    <p>{{description}}</p>
+                    <p>{{contactEmail}}</p>
+                    <form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
+                        <input type="submit" value="Delete Listing">
+                    </form>
+                    <form method="GET" action="/breeds/{{breedId}}/listings/{{_id}}/edit">
+                        <input type="submit" value="Edit Listing">
+                    </form>
+                    {{/each}} --}}
 
-{{#each listings}}
-<p>{{createdAt}}</p>
-<p>{{dogName}}</p>
-<p>{{state}}</p>
-<p>{{age}}</p>
-<p>{{gender}}</p>
-<p>{{weight}} lbs.</p>
-<p>{{description}}</p>
-<p>{{contactEmail}}</p>
-<form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
-    <input type="submit" value="Delete Listing">
-</form>
-<form method="GET" action="/breeds/{{breedId}}/listings/{{_id}}/edit">
-    <input type="submit" value="Edit Listing">
-</form>
-{{/each}}
+
+                    <table class="table">
+                        <thread>
+                            <tr>
+                                <th>Name</th>
+                                <th>Breed</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Location</th>
+                                <th>Contact Email</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            {{#each listings}}
+                            <tr>
+                                <td>{{dogName}}</td>
+                                <td>{{breed.name}}</td>
+                                <td>{{age}}</td>
+                                <td>{{gender}}</td>
+                                <td>{{city}}, {{state}}</td>
+                                <td>{{contactEmail}}</td>
+                                <td>
+                                    <form method="GET" action="/breeds/{{breedId}}/listings/{{_id}}/edit">
+                                        <input type="submit" value="Edit Listing">
+                                    </form>
+
+                                    <form method="POST" action="/breeds/{{breedId}}/listings/{{_id}}?_method=DELETE">
+                                        <input type="submit" value="Delete Listing">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
