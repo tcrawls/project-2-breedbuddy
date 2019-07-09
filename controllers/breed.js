@@ -94,13 +94,6 @@ breedRouter.get('/:breedId/newComment', (req, res) => {
     })
 })
 
-// breedRouter.get('/:breedId/newListing', (req, res) => {
-//   breedApi.getBreed(req.params.breedId)
-//     .then((breed) => {
-//       res.render('listings/newListingForm', {breed})
-//     })
-//   })
-
 breedRouter.delete('/:breedId', (req, res) => {
   breedApi.deleteBreed(req.params.breedId)
     .then(() => {

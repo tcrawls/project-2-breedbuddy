@@ -55,13 +55,6 @@ listingRouter.post('/', (req, res) => {
       res.redirect(`/breeds/${req.params.breedId}/listings`)
     })
 })
-//   .then(() => {
-//     listingApi.getListingsByBreedId(req.params.breedId)
-//     .then((listings) => {
-//       res.render('listings/listings', {listings})
-//     })
-//   })
-// })
 
 listingRouter.get('/new', (req, res) => {
   breedApi.getBreed(req.params.breedId)
